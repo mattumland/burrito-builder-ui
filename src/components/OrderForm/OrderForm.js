@@ -13,7 +13,27 @@ class OrderForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.clearInputs();
+    const newOrder = {
+      id: Date.now(),
+      name:this.state.name,
+      ingredients:this.state.ingredients,
+    }
+    if (!newOrder.name || !newOrder.ingredients.length) {
+      alert("Please fill out the order form completely. Do it! YOU MUST DO IT!")
+    } else {
+      this.props.addOrder(newOrder)
+      this.clearInputs();
+    }
+  }
+
+  handleNameChange = event => {
+    event.preventDefault();
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
+  handleIngredientChange = event => {
+    event.preventDefault();
+    this.setState({ ingredients: [...this.state.ingredients,  event.target.name ]});
   }
 
   clearInputs = () => {
