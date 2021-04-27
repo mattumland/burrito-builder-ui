@@ -23,10 +23,6 @@ class App extends Component {
   .catch(err => alert(err))
 }
 
- deleteOrder = (order) => {
-   
- }
-
   componentDidMount() {
     getOrders()
       .then(allOrders => this.setState({ orders: allOrders.orders}))
