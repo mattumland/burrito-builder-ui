@@ -33,7 +33,7 @@ describe('Input tests', () => {
     .visit('http://localhost:3000')
   })
 
-  it('Should not should how an alert empty order is submitted', () => {
+  it('Should show an alert when an empty order is submitted', () => {
     cy.get('[data-cy=orderButton]').click()
     cy.on('window:alert', (txt) => {
       expect(txt).to.equal('Please fill out the order form completely. Do it! YOU MUST DO IT!')

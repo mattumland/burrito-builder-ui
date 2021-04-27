@@ -13,15 +13,15 @@ class App extends Component {
   }
 
   addOrder = (newOrder) => {
-  fetch('http://localhost:3001/api/v1/orders', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(newOrder)
-  })
-  .then(response => response.json())
-  .then(order => this.setState({ orders: [...this.state.orders, order]}))
-  .catch(err => alert(err))
-}
+    fetch('http://localhost:3001/api/v1/orders', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(newOrder)
+    })
+    .then(response => response.json())
+    .then(order => this.setState({ orders: [...this.state.orders, order]}))
+    .catch(err => alert(err))
+  }
 
   componentDidMount() {
     getOrders()
